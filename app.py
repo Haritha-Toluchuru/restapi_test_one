@@ -6,33 +6,33 @@ todo=Flask('__name__')
 students=[
         {
             'std_id':1,
-            'student_name':'ramya',
-            'age':21,
-            'email':'ramyapramya178@gmail.com'
+            'student_name':'Haritha',
+            'age':20,
+            'email':'harithat2004@gmail.com'
         },
         {
             'std_id':2,
-            'student_name': 'sharath',
+            'student_name': 'kavya',
             'age': 20,
-            'email': 'sharath334@gmail.com'
+            'email': 'kavyanaidu359@gmail.com'
         },
         {
             'std_id':3,
-            'student_name': 'deeskitha',
+            'student_name': 'ramya',
             'age': 21,
-            'email': 'deekitha2004@gmail.com'
+            'email': 'ramyapramya@gmail.com'
         },
         {
             'std_id':4,
-            'student_name': 'sami',
+            'student_name': 'abhishek',
             'age': 20,
-            'email': 'sami@gmail.com'
+            'email': 'a17182649gmail.com'
         },
         {
             'std_id':5,
-            'student_name': 'aslam',
+            'student_name': 'harshitha',
             'age': 21,
-            'email': 'aslam262004@gmail.com'
+            'email': 'toluchuruharshitha@gmail.com'
         },
 
     ]
@@ -41,29 +41,23 @@ students=[
 def student_list():
     return jsonify(students)
 
-@todo.route('/students-list/restapi')
+@todo.route('/student-list/restapi')
 def student_list_restapi():
-    import requests
 
-    url = "https://restapi-test-one-2-gum5.onrender.com/students-list"
 
-    payload = {}
-    headers = {}
 
-    response = requests.request("GET", url)
-
-    return response.json()
-
-@todo.route('/student/get/<int:std_id>')
-def student_get_by_id(std_id):
+  @todo.route('/student/get/<int:std_id>')
+  def student_get_by_id(std_id):
     for std in students:
         if std['std_id']==std_id:
             return jsonify(std)
     return "id not found"
 
+
+
+
+
 if __name__ == '__main__':
     todo.run(
-        host='127.0.0.1',
-        port=5010,
         debug=True
     )
